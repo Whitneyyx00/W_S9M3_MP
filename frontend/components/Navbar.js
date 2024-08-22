@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-const Navbar = (props) => {
-  const toggleMode = e => {
-    e.preventDefault()
-    props.setDarkMode(!props.darkMode)
-  }
+const Navbar = ({ darkMode, toggleDarkMode }) => {
+  const toggleMode = (e) => {
+    e.preventDefault();
+    toggleDarkMode(); // Use toggleDarkMode function to handle the state change
+  };
 
   return (
     <nav className="navbar">
@@ -14,12 +14,12 @@ const Navbar = (props) => {
         <div className="dark-mode__toggle">
           <div
             onClick={toggleMode}
-            className={props.darkMode ? 'toggle toggled' : 'toggle'}
+            className={darkMode ? 'toggle toggled' : 'toggle'}
           />
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
